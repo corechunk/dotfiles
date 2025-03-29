@@ -7,6 +7,6 @@
 >>Now the Directory should have a nvim folder
 >>2. Now you are good to run neovim in your desired directory
 >>```bash
->>nvim "fileName.extention"
+>>nvim
 >>```
 >---
