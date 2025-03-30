@@ -1,4 +1,4 @@
->###### [[ click this ] Return to Previous page !!](source/PAGE2.md)
+>###### [[ click this ] Return to Previous page !!](../PAGE2.md)
 >---
 ># Run these communds to follow the instruction
 >>1. clone the git repositiry -
