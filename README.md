@@ -19,7 +19,7 @@
 > ```bash
 > cd .config
 > ```
->>> [[ click this ]  This is a shortcut if you have git installed on your system !!](PAGE2.md)
+>>> [[ click this ]  This is a shortcut if you have git installed on your system !!](source/PAGE2.md)
 >2. Open nvim folder
 > ```bash
 > cd nvim
