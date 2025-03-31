@@ -7,7 +7,7 @@
 >* `ctrl + shift + T` : only shifts your focus toward file tree \[ not the opposite \]
 >* `ctrl + alt + C` &nbsp;&nbsp;&nbsp;&nbsp;: Starts the integrated terminal if it doesn't exist
 >* `ctrl + shift + F` : Toggles the integrated terminal [ only if the terminal is Started ]
->* `ctrl + <space>` &nbsp;&nbsp;&nbsp;&nbsp;: Turns on search commands [ exit that by <esc> ]
+>* `ctrl + <space>` &nbsp;&nbsp;&nbsp;&nbsp;: Turns on command search [ exit that by <esc> ]
 ---
 ## If you have Neovim installed on your Linux System
 >
