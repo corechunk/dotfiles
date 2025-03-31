@@ -1,4 +1,4 @@
->###### [[ click this ] Return to Previous page !!](../PAGE2.md)
+>###### [[ click this ] to Return to Previous page !!](../README.md)
 >---
 ># Run these communds to follow the instruction
 >>1. clone the git repositiry -
@@ -8,6 +8,6 @@
 >>* Now the Directory should have a nvim folder. 
 >> 2. Now you are good to run neovim in your desired directory
 >>```bash
->>`nvim`
+>>nvim
 >>```
 >---
