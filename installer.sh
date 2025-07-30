@@ -10,10 +10,103 @@ check_git() {
     fi
 }
 
-# Function to download dotfiles (placeholder for later)
+# Function to download a single dotfile repository
+download_dotfile() {
+    local folder=$1
+    local repo_url=$2
+    local temp_dir="temp_$(date +%s)"
+    
+    echo "Downloading $folder dotfiles from $repo_url..."
+    
+    # Create temporary directory
+    mkdir -p "$temp_dir"
+    
+    # Download the tarball
+    if curl -L "$repo_url/archive/refs/heads/main.tar.gz" -o "$temp_dir/repo.tar.gz"; then
+        # Extract tarball
+        tar -xzf "$temp_dir/repo.tar.gz" -C "$temp_dir"
+        
+        # Find the extracted folder (GitHub appends branch name, e.g., Neovim-main)
+        extracted_folder=$(ls "$temp_dir" | grep -E '.*-main$')
+        
+        if [ -d "$temp_dir/$extracted_folder" ]; then
+            # Create target folder if it doesn't exist
+            mkdir -p "$folder"
+            
+            # Move contents (not the folder itself) to the target folder
+            mv "$temp_dir/$extracted_folder/"* "$folder/"
+            
+            echo "$folder dotfiles downloaded successfully."
+        else
+            echo "Error: Could not find extracted folder in $temp_dir."
+            rm -rf "$temp_dir"
+            return 1
+        fi
+        
+        # Clean up
+        rm -rf "$temp_dir"
+    else
+        echo "Error: Failed to download repository from $repo_url."
+        rm -rf "$temp_dir"
+        return 1
+    fi
+}
+
+# Function to show download menu
+download_menu() {
+    clear
+    echo "Download Dotfiles Menu"
+    echo "----------------------"
+    echo "1. Download Neovim dotfiles"
+    echo "2. Download Kitty dotfiles"
+    echo "3. Download Tmux dotfiles"
+    echo "4. Download Bash dotfiles"
+    echo "5. Download all dotfiles"
+    echo "[x]. Back to main menu : choose 'x' to return"
+    echo ""
+    
+    read -p "Enter your choice: " choice
+    echo ""
+    
+    case $choice in
+        1)
+            download_dotfile "neovim" "https://github.com/Miraj13123/Neovim.git"
+            download_menu
+            ;;
+        2)
+            echo "Kitty repository URL not provided yet."
+            download_menu
+            ;;
+        3)
+            echo "Tmux repository URL not provided yet."
+            download_menu
+            ;;
+        4)
+            echo "Bash repository URL not provided yet."
+            download_menu
+            ;;
+        5)
+            download_dotfile "neovim" "https://github.com/Miraj13123/Neovim.git"
+            echo "Other repository URLs not provided yet."
+            download_menu
+            ;;
+        x|X)
+            clear
+            show_menu
+            ;;
+        *)
+            clear
+            echo "================================="
+            echo "Invalid choice, please try again."
+            echo "================================="
+            download_menu
+            ;;
+    esac
+}
+
+# Function to trigger download menu
 download_dotfiles() {
-    echo "Downloading dotfiles... (placeholder)"
-    # Add download logic here later
+    download_menu
 }
 
 # Function to run installer for a specific tool
@@ -102,9 +195,11 @@ show_menu() {
 
     # Process user choice
     if [ "$choice" = "0" ]; then
+        clear
         download_dotfiles
         show_menu
     elif [ "$choice" = "1" ]; then
+        clear
         if $all_downloaded; then
             run_installer "neovim"
             run_installer "kitty"
@@ -115,6 +210,7 @@ show_menu() {
         fi
         show_menu
     elif [ "$choice" = "2" ]; then
+        clear
         if $neovim_git; then
             run_installer "neovim"
         else
@@ -122,6 +218,7 @@ show_menu() {
         fi
         show_menu
     elif [ "$choice" = "3" ]; then
+        clear
         if $kitty_git; then
             run_installer "kitty"
         else
@@ -129,6 +226,7 @@ show_menu() {
         fi
         show_menu
     elif [ "$choice" = "4" ]; then
+        clear
         if $tmux_git; then
             run_installer "tmux"
         else
@@ -136,6 +234,7 @@ show_menu() {
         fi
         show_menu
     elif [ "$choice" = "5" ]; then
+        clear
         if $bash_git; then
             run_installer "bash"
         else
@@ -143,16 +242,22 @@ show_menu() {
         fi
         show_menu
     elif [ "$choice" = "6" ]; then
+        clear
         show_info
         show_menu
     elif [ "$choice" = "x" ] || [ "$choice" = "X" ]; then
+        clear
         echo "Exiting..."
         exit 0
     else
+        clear
+        echo "================================="
         echo "Invalid choice, please try again."
+        echo "================================="
         show_menu
     fi
 }
 
 # Main execution
+clear
 show_menu
