@@ -68,7 +68,6 @@ download_dotfile() {
 
 # Function to show download menu
 download_menu() {
-    clear
     echo "Download Dotfiles Menu"
     echo "----------------------"
     echo "1. Download Neovim dotfiles"
@@ -111,7 +110,6 @@ download_menu() {
             #show_menu
             ;;
         *)
-            clear
             echo "================================="
             echo "Invalid choice, please try again."
             echo "================================="
