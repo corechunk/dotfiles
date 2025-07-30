@@ -35,7 +35,7 @@ download_dotfile() {
                     mkdir -p "$folder"
                     
                     # Move contents (not the folder itself) to the target folder
-                    mv "$temp_dir/$extracted_folder/"* "$folder/" 2>/dev/null || {
+                    mv "$temp_dir/$extracted_folder/"{.,}* "$folder/" 2>/dev/null || {
                         echo "Error: Failed to move contents to $folder."
                         rm -rf "$temp_dir"
                         return 1
