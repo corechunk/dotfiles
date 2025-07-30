@@ -74,25 +74,27 @@ download_menu() {
             download_menu
             ;;
         2)
-            echo "Kitty repository URL not provided yet."
+            download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
             download_menu
             ;;
         3)
-            echo "Tmux repository URL not provided yet."
+            download_dotfile "tmux" "https://github.com/Miraj13123/tmux.git"
             download_menu
             ;;
         4)
-            echo "Bash repository URL not provided yet."
+            download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
             download_menu
             ;;
         5)
             download_dotfile "neovim" "https://github.com/Miraj13123/Neovim.git"
-            echo "Other repository URLs not provided yet."
+            download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
+            download_dotfile "tmux" "https://github.com/Miraj13123/tmux.git"
+            download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
             download_menu
             ;;
         x|X)
             clear
-            show_menu
+            #show_menu
             ;;
         *)
             clear
