@@ -83,19 +83,21 @@ download_menu() {
     
     case $choice in
         1)
-            download_dotfile "neovim" "https://github.com/Miraj13123/Neovim.git"
+            # @warning  it will only work if you provide the repo url without the ".git"
+            #[ e.g. "https://github.com/Miraj13123/Neovim" instead of "https://github.com/Miraj13123/Neovim.git" ]
+            download_dotfile "neovim" "https://github.com/Miraj13123/Neovim"
             download_menu
             ;;
         2)
-            download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
+            download_dotfile "kitty" "https://github.com/Miraj13123/Kitty"
             download_menu
             ;;
         3)
-            download_dotfile "tmux" "https://github.com/Miraj13123/tmux.git"
+            download_dotfile "tmux" "https://github.com/Miraj13123/tmux"
             download_menu
             ;;
         4)
-            download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
+            download_dotfile "bash" "https://github.com/Miraj13123/Bash"
             download_menu
             ;;
         5)
