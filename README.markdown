@@ -10,6 +10,26 @@ Welcome to my dotfiles repository! This repo, `Miraj13123/dotfiles`, centralizes
 - [Controls and Keybindings](#controls-and-keybindings)
 - [License](#license)
 
+
+## Gallery
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <div style="flex: 1; min-width: 45%; max-width: 45%;">
+    <img src="assets/image1.png" alt="Image 1" style="width: 100%; height: auto;">
+    <img src="image2.png" alt="Image 2" style="width: 100%; height: auto;">
+  </div>
+  <div style="flex: 1; min-width: 45%; max-width: 45%;">
+    <img src="image3.png" alt="Image 3" style="width: 100%; height: auto;">
+    <img src="image4.png" alt="Image 4" style="width: 100%; height: auto;">
+  </div>
+</div>
+
+---
+Neovim | Tmux
+
+-------------
+
+ kitty_ _ _| Bash  
+
 ## Usage Guide
 The `installer.sh` script is the main entry point for managing your dotfiles. Follow these steps to get started:
 
