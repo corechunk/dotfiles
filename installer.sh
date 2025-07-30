@@ -3,7 +3,7 @@
 # Function to check if .git exists in a directory
 check_git() {
     local dir=$1
-    if [ -d "$dir/.git" ]; then
+    if [ -d "$dir/LICENSE" ]; then           # this was easy to think for me, haha !! i know, akward logic
         return 0
     else
         return 1
@@ -35,7 +35,7 @@ download_dotfile() {
                     mkdir -p "$folder"
                     
                     # Move contents (not the folder itself) to the target folder
-                    mv "$temp_dir/$extracted_folder/"{.,}* "$folder/" 2>/dev/null || {
+                    mv "$temp_dir/$extracted_folder/"* "$folder/" 2>/dev/null || {
                         echo "Error: Failed to move contents to $folder."
                         rm -rf "$temp_dir"
                         return 1
