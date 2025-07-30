@@ -22,27 +22,41 @@ download_dotfile() {
     mkdir -p "$temp_dir"
     
     # Download the tarball
-    if curl -L "$repo_url/archive/refs/heads/main.tar.gz" -o "$temp_dir/repo.tar.gz"; then
-        # Extract tarball
-        tar -xzf "$temp_dir/repo.tar.gz" -C "$temp_dir"
-        
-        # Find the extracted folder (GitHub appends branch name, e.g., Neovim-main)
-        extracted_folder=$(ls "$temp_dir" | grep -E '.*-main$')
-        
-        if [ -d "$temp_dir/$extracted_folder" ]; then
-            # Create target folder if it doesn't exist
-            mkdir -p "$folder"
-            
-            # Move contents (not the folder itself) to the target folder
-            mv "$temp_dir/$extracted_folder/"* "$folder/"
-            
-            echo "$folder dotfiles downloaded successfully."
+    if curl -L --fail "$repo_url/archive/refs/heads/main.tar.gz" -o "$temp_dir/repo.tar.gz"; then
+        # Verify tarball is a valid gzip file
+        if file "$temp_dir/repo.tar.gz" | grep -q "gzip compressed data"; then
+            # Extract tarball
+            if tar -xzf "$temp_dir/repo.tar.gz" -C "$temp_dir"; then
+                # Find the extracted folder (GitHub appends branch name, e.g., Kitty-main)
+                extracted_folder=$(ls "$temp_dir" | grep -E '.*-main$')
+                
+                if [ -d "$temp_dir/$extracted_folder" ]; then
+                    # Create target folder if it doesn't exist
+                    mkdir -p "$folder"
+                    
+                    # Move contents (not the folder itself) to the target folder
+                    mv "$temp_dir/$extracted_folder/"* "$folder/" 2>/dev/null || {
+                        echo "Error: Failed to move contents to $folder."
+                        rm -rf "$temp_dir"
+                        return 1
+                    }
+                    
+                    echo "$folder dotfiles downloaded successfully."
+                else
+                    echo "Error: Could not find extracted folder in $temp_dir."
+                    rm -rf "$temp_dir"
+                    return 1
+                fi
+            else
+                echo "Error: Failed to extract tarball."
+                rm -rf "$temp_dir"
+                return 1
+            fi
         else
-            echo "Error: Could not find extracted folder in $temp_dir."
+            echo "Error: Downloaded file is not a valid gzip tarball."
             rm -rf "$temp_dir"
             return 1
         fi
-        
         # Clean up
         rm -rf "$temp_dir"
     else
