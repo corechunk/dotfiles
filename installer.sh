@@ -3,9 +3,11 @@
 # Function to check if .git exists in a directory
 check_git() {
     local dir=$1
-    if [ -d "$dir/LICENSE" ]; then           # this was easy to think for me, haha !! i know, akward logic
+    if [ -f "$dir/README.md" ]; then           # this was easy to think for me, haha !! i know, akward logic
+        #echo "Debug: Found in $PWD/$dir"
         return 0
     else
+        #echo "Debug: not Found in $PWD/$dir"
         return 1
     fi
 }
