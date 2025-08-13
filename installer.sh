@@ -21,7 +21,7 @@ download_dotfile() {
     
     mkdir -p "$folder"
     cd "$folder"
-    if git clone "$repo_url" .;then
+    if git --depth 1 clone "$repo_url" .;then
         local error=false
         echo "downloaded contents from $repo_url successfully"
     else
