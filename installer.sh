@@ -56,7 +56,7 @@ download_menu() {
                 download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
                 ;;
             2)
-                download_dotfile "neovim" "https://github.com/Miraj13123/Neovim.git"
+                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git"
                 ;;
             3)
                 download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
@@ -68,7 +68,7 @@ download_menu() {
                 download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
                 ;;
             6)
-                download_dotfile "neovim" "https://github.com/Miraj13123/Neovim.git"
+                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git"
                 download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
                 download_dotfile "tmux" "https://github.com/Miraj13123/Tmux.git"
                 download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
@@ -126,7 +126,7 @@ show_menu() {
     local omp_git="(dotfiles aren't downloaded)"
     
     # calling function to check .git file
-    check_git "neovim" && neovim_git="(dotfiles are downloaded)"
+    check_git "nvim" && neovim_git="(dotfiles are downloaded)"
     check_git "kitty" && kitty_git="(dotfiles are downloaded)"
     check_git "tmux" && tmux_git="(dotfiles are downloaded)"
     check_git "bash" && bash_git="(dotfiles are downloaded)"
@@ -134,7 +134,7 @@ show_menu() {
     
     # Check if all dotfiles are downloaded
     local all_downloaded="(all dotfiles are downloaded)"
-    for dir in neovim kitty tmux bash omp; do
+    for dir in nvim kitty tmux bash omp; do
         if ! check_git "$dir"; then
             all_downloaded="(all dotfiles aren't downloaded)"
             break
@@ -167,7 +167,7 @@ show_menu() {
     elif [ "$choice" = "1" ]; then
         clear
         if [[ "$all_downloaded"=="(all dotfiles are downloaded)" ]]; then
-            run_installer "neovim"
+            run_installer "nvim"
             run_installer "kitty"
             run_installer "tmux"
             run_installer "bash"
@@ -187,7 +187,7 @@ show_menu() {
     elif [ "$choice" = "3" ]; then
         clear
         if [[ "$neovim_git"=="(dotfiles are downloaded)" ]]; then
-            run_installer "neovim"
+            run_installer "nvim"
         else
             echo "Neovim dotfiles aren't available. Please download dotfiles to continue."
         fi
