@@ -28,10 +28,10 @@ Kitty  | Bash
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <div style="flex: 1; min-width: 45%; max-width: 45%;">
     <img src="assets/image1.png" alt="Neovim Config" style="width: 400px; height: auto;">
-    <img src="assets/image2.png" alt="Kitty Config" style="width: 400px; height: auto;">
+    <img src="assets/image2.png" alt="Tmux Config" style="width: 400px; height: auto;">
   </div>
   <div style="flex: 1; min-width: 45%; max-width: 45%;">
-    <img src="assets/image.png" alt="Tmux Config" style="width: 400px; height: auto;">
+    <img src="assets/image3.png" alt="Kitty Config" style="width: 400px; height: auto;">
     <img src="assets/image4.png" alt="Bash Config" style="width: 400px; height: auto;">
   </div>
 </div>
