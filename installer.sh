@@ -18,17 +18,28 @@ download_dotfile() {
     fi
     
     echo "Downloading $folder dotfiles from $repo_url..."
-    
     mkdir -p "$folder"
     cd "$folder"
-    if git clone --depth 1 "$repo_url" .;then
-        local error=false
-        echo "downloaded contents from $repo_url successfully"
+    
+    if [[ -z "$3" ]];then
+        if git clone --depth 1 "$repo_url" .;then
+            local error=false
+            echo "downloaded contents from $repo_url successfully"
+        else
+            local error=true
+            echo "contents from $repo_url couldn't be downloaded !!"
+        fi
     else
-        local error=true
-        echo "contents from $repo_url couldn't be downloaded !!"
+        if git clone --depth 1 "$repo_url" -b "$3" .;then
+            local error=false
+            echo "downloaded contents from $repo_url successfully"
+        else
+            local error=true
+            echo "contents from $repo_url couldn't be downloaded !!"
+        fi
     fi
     cd ..
+    
     if $error;then return 1;else return 0;fi
 }
 
@@ -56,7 +67,7 @@ download_menu() {
                 download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
                 ;;
             2)
-                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git"
+                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"
                 ;;
             3)
                 download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
