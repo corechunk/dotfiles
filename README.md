@@ -7,8 +7,39 @@ Welcome to my dotfiles repository! This repo, `Miraj13123/dotfiles`, centralizes
 </p>
 
 ---
+## Sub-repositories it includes
+- This Repository
+  - `<Sub-Repositories>` : Visit these repositories to know about them properly.
+  - [Oh-My-Posh  -  repository](https://github.com/Miraj13123/Oh-My-Posh)
+  - [Kitty - - - - - --- repository](https://github.com/Miraj13123/Kitty)
+  - [Tmux - - - - - - repository](https://github.com/Miraj13123/Tmux)
+  - [Neovim - - - -  repository](https://github.com/Miraj13123/Neovim)
+  - [Bash - - - - - -- repository](https://github.com/Miraj13123/Bash)
+  - ###### [ Some are dot files here and others are configurations files ]
+---
+## 🗂️ Repository Structure
 
-## ✨ Table of Contents
+The repository is organized as follows: 
+``` 
+dotfiles/
+├── .git/
+├── installer.sh
+│
+├── omp/...
+├── kitty/...
+├── tmux/...
+├── nvim/...
+├── bash/...
+│
+├── README.md
+└── LICENSE
+```
+- [ the structure show the state after you download all the sub repos through the installer ]
+- Each tool’s folder contains its installer script and configuration files.
+- The root `installer.sh` orchestrates downloading and running these installers.
+---
+
+## ✨ Table of Contents  -- [[ Not updated ]] --
 - [Gallery](#gallery)
 - [Usage Guide](#usage-guide)
 - [Prerequisites](#prerequisites)
@@ -89,34 +120,6 @@ On an Arch-based system:
 ```bash
 sudo pacman -Syu --noconfirm git curl
 ```
-
----
-
-## 🗂️ Repository Structure
-
-The repository is organized as follows: 
-``` 
-dotfiles/
-├── .git/
-├── bash/
-│   └── installer_bash_dots.sh
-├── kitty/
-│   ├── installer_kitty_dots.sh
-│   ├── kitty_custom.conf
-│   ├── kitty-colors.conf
-│   └── kitty-themes/
-├── nvim/
-│   └── installer_nvim_dots.sh
-├── omp/
-│   └── installer_omp_dots.sh
-├── tmux/
-│   └── installer_tmux_dots.sh
-├── installer.sh
-└── LICENSE
-```
-- [ the structure show the state after you download all the sub repos through the installer ]
-- Each tool’s folder contains its installer script and configuration files.
-- The root `installer.sh` orchestrates downloading and running these installers.
 
 ---
 
