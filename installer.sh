@@ -67,7 +67,7 @@ download_menu() {
                 download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
                 ;;
             2)
-                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"
+                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
                 ;;
             3)
                 download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
@@ -79,7 +79,7 @@ download_menu() {
                 download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
                 ;;
             6)
-                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git"
+                download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
                 download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
                 download_dotfile "tmux" "https://github.com/Miraj13123/Tmux.git"
                 download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
@@ -129,119 +129,122 @@ show_info() {
 
 # Function to display the menu
 show_menu() {
-    # Check .git presence for each directory
-    local neovim_git="(dotfiles aren't downloaded)"
-    local kitty_git="(dotfiles aren't downloaded)"
-    local tmux_git="(dotfiles aren't downloaded)"
-    local bash_git="(dotfiles aren't downloaded)"
-    local omp_git="(dotfiles aren't downloaded)"
-    
-    # calling function to check .git file
-    check_git "nvim" && neovim_git="(dotfiles are downloaded)"
-    check_git "kitty" && kitty_git="(dotfiles are downloaded)"
-    check_git "tmux" && tmux_git="(dotfiles are downloaded)"
-    check_git "bash" && bash_git="(dotfiles are downloaded)"
-    check_git "omp" && omp_git="(dotfiles are downloaded)"
-    
-    # Check if all dotfiles are downloaded
-    local all_downloaded="(all dotfiles are downloaded)"
-    for dir in nvim kitty tmux bash omp; do
-        if ! check_git "$dir"; then
-            all_downloaded="(all dotfiles aren't downloaded)"
+    while true;do
+        # Check .git presence for each directory
+        local neovim_git="(dotfiles aren't downloaded)"
+        local kitty_git="(dotfiles aren't downloaded)"
+        local tmux_git="(dotfiles aren't downloaded)"
+        local bash_git="(dotfiles aren't downloaded)"
+        local omp_git="(dotfiles aren't downloaded)"
+        
+        # calling function to check .git file
+        check_git "nvim" && neovim_git="(dotfiles are downloaded)"
+        check_git "kitty" && kitty_git="(dotfiles are downloaded)"
+        check_git "tmux" && tmux_git="(dotfiles are downloaded)"
+        check_git "bash" && bash_git="(dotfiles are downloaded)"
+        check_git "omp" && omp_git="(dotfiles are downloaded)"
+        
+        # Check if all dotfiles are downloaded
+        local all_downloaded="(all dotfiles are downloaded)"
+        for dir in nvim kitty tmux bash omp; do
+            if ! check_git "$dir"; then
+                all_downloaded="(all dotfiles aren't downloaded)"
+                break
+            fi
+        done
+
+        echo "Dotfiles Installer Menu"
+        echo "----------------------"
+        echo "0. Download dotfiles"
+        echo "1. Install all, $all_downloaded"
+        echo "2. Install oh-my-posh dots, $omp_git"
+        echo "3. Install Neovim dots, $neovim_git"
+        echo "4. Install Kitty dots, $kitty_git"
+        echo "5. Install Tmux dots, $tmux_git"
+        echo "6. Install Bash dots, $bash_git"
+        echo "7. Info"
+        echo "[x]. Exit : choose 'x' to exit"
+        echo ""
+        
+        # Read user input
+        local choice=""
+        read -p "Enter your choice: " choice
+        echo ""
+
+        # Process user choice
+        if [ "$choice" = "0" ]; then
+            clear
+            download_dotfiles
+            #show_menu
+        elif [ "$choice" = "1" ]; then
+            clear
+            if [[ "$all_downloaded"=="(all dotfiles are downloaded)" ]]; then
+                run_installer "nvim"
+                run_installer "kitty"
+                run_installer "tmux"
+                run_installer "bash"
+                run_installer "omp"
+            else
+                echo "Dotfiles aren't fully downloaded. Please download dotfiles to continue."
+            fi
+            #show_menu
+        elif [ "$choice" = "2" ]; then
+            clear
+            if [[ "$omp_git"=="(dotfiles are downloaded)" ]]; then
+                run_installer "omp"
+            else
+                echo "oh-my-posh dotfiles aren't available. Please download dotfiles to continue."
+            fi
+            #show_menu
+        elif [ "$choice" = "3" ]; then
+            clear
+            if [[ "$neovim_git"=="(dotfiles are downloaded)" ]]; then
+                run_installer "nvim"
+            else
+                echo "Neovim dotfiles aren't available. Please download dotfiles to continue."
+            fi
+            #show_menu
+        elif [ "$choice" = "4" ]; then
+            clear
+            if [[ "$kitty_git"=="(dotfiles are downloaded)" ]]; then
+                run_installer "kitty"
+            else
+                echo "Kitty dotfiles aren't available. Please download dotfiles to continue."
+            fi
+            #show_menu
+        elif [ "$choice" = "5" ]; then
+            clear
+            if [[ "$tmux_git"=="(dotfiles are downloaded)" ]]; then
+                run_installer "tmux"
+            else
+                echo "Tmux dotfiles aren't available. Please download dotfiles to continue."
+            fi
+            #show_menu
+        elif [ "$choice" = "6" ]; then
+            clear
+            if [[ "$bash_git"=="(dotfiles are downloaded)" ]]; then
+                run_installer "bash"
+            else
+                echo "Bash dotfiles aren't available. Please download dotfiles to continue."
+            fi
+            #show_menu
+        elif [ "$choice" = "7" ]; then
+            clear
+            show_info
+            #show_menu
+        elif [ "$choice" = "x" ] || [ "$choice" = "X" ]; then
+            clear
+            echo "Exiting..."
             break
+            #exit 0
+        else
+            clear
+            echo "================================="
+            echo "Invalid choice, please try again."
+            echo "================================="
+            #show_menu
         fi
     done
-
-    echo "Dotfiles Installer Menu"
-    echo "----------------------"
-    echo "0. Download dotfiles"
-    echo "1. Install all, $all_downloaded"
-    echo "2. Install oh-my-posh dots, $omp_git"
-    echo "3. Install Neovim dots, $neovim_git"
-    echo "4. Install Kitty dots, $kitty_git"
-    echo "5. Install Tmux dots, $tmux_git"
-    echo "6. Install Bash dots, $bash_git"
-    echo "7. Info"
-    echo "[x]. Exit : choose 'x' to exit"
-    echo ""
-    
-    # Read user input
-    local choice=""
-    read -p "Enter your choice: " choice
-    echo ""
-
-    # Process user choice
-    if [ "$choice" = "0" ]; then
-        clear
-        download_dotfiles
-        show_menu
-    elif [ "$choice" = "1" ]; then
-        clear
-        if [[ "$all_downloaded"=="(all dotfiles are downloaded)" ]]; then
-            run_installer "nvim"
-            run_installer "kitty"
-            run_installer "tmux"
-            run_installer "bash"
-            run_installer "omp"
-        else
-            echo "Dotfiles aren't fully downloaded. Please download dotfiles to continue."
-        fi
-        show_menu
-    elif [ "$choice" = "2" ]; then
-        clear
-        if [[ "$omp_git"=="(dotfiles are downloaded)" ]]; then
-            run_installer "omp"
-        else
-            echo "oh-my-posh dotfiles aren't available. Please download dotfiles to continue."
-        fi
-        show_menu
-    elif [ "$choice" = "3" ]; then
-        clear
-        if [[ "$neovim_git"=="(dotfiles are downloaded)" ]]; then
-            run_installer "nvim"
-        else
-            echo "Neovim dotfiles aren't available. Please download dotfiles to continue."
-        fi
-        show_menu
-    elif [ "$choice" = "4" ]; then
-        clear
-        if [[ "$kitty_git"=="(dotfiles are downloaded)" ]]; then
-            run_installer "kitty"
-        else
-            echo "Kitty dotfiles aren't available. Please download dotfiles to continue."
-        fi
-        show_menu
-    elif [ "$choice" = "5" ]; then
-        clear
-        if [[ "$tmux_git"=="(dotfiles are downloaded)" ]]; then
-            run_installer "tmux"
-        else
-            echo "Tmux dotfiles aren't available. Please download dotfiles to continue."
-        fi
-        show_menu
-    elif [ "$choice" = "6" ]; then
-        clear
-        if [[ "$bash_git"=="(dotfiles are downloaded)" ]]; then
-            run_installer "bash"
-        else
-            echo "Bash dotfiles aren't available. Please download dotfiles to continue."
-        fi
-        show_menu
-    elif [ "$choice" = "7" ]; then
-        clear
-        show_info
-        show_menu
-    elif [ "$choice" = "x" ] || [ "$choice" = "X" ]; then
-        clear
-        echo "Exiting..."
-        exit 0
-    else
-        clear
-        echo "================================="
-        echo "Invalid choice, please try again."
-        echo "================================="
-        show_menu
-    fi
 }
 
 # Main execution
