@@ -321,6 +321,7 @@ show_menu() {
             
             if [[ "$wjk_git"=="( downloaded )" ]]; then
                 #run_installer "wjk" #JaKooLit Wallpapers --- needs to be configured
+                echo "not configured yet"
             else
                 echo "JaKooLit Wallpaper isn't downloaded. Please download JaKooLit's wallpaper to continue."
             fi
