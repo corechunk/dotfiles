@@ -92,7 +92,7 @@ download_menu() {
             6)
                     # Download JaKooLit wallpapers
                 echo "not configured yet"
-                #download_dotfile "wjk" #JaKooLit Wallpapers --- needs to be configured
+                download_dotfile "wjk" https://github.com/Miraj13123/wallpaper_jakoolit.git
                 ;;
             7)
                     # Download Minecraft wallpapers
@@ -109,7 +109,7 @@ download_menu() {
             9)
                     # Download all wallpapers only
                 download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
-                #download_dotfile "wjk" #JaKooLit Wallpapers --- needs to be configured
+                download_dotfile "wjk" https://github.com/Miraj13123/wallpaper_jakoolit.git
                 ;;
             10)
                     # Download all dotfiles and all wallpapers
@@ -120,7 +120,7 @@ download_menu() {
                 download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
 
                 download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
-                #download_dotfile "wjk" #JaKooLit Wallpapers --- needs to be configured
+                download_dotfile "wjk" https://github.com/Miraj13123/wallpaper_jakoolit.git
                 ;;
             x|X)
                 clear
@@ -216,7 +216,7 @@ show_menu() {
         check_git "omp" && omp_git="( downloaded )"
 
         check_git "wmc" && wmc_git="( downloaded )"
-        #check_git "wjk" && wjk_git="( downloaded )"
+        check_git "wjk" && wjk_git="( downloaded )"
         
         # Check if all dotfiles are downloaded
         for dir in nvim kitty tmux bash omp; do
@@ -320,7 +320,7 @@ show_menu() {
             clear
             
             if [[ "$wjk_git"=="( downloaded )" ]]; then
-                #run_installer "wjk" #JaKooLit Wallpapers --- needs to be configured
+                run_installer "wjk"
                 echo "not configured yet"
             else
                 echo "JaKooLit Wallpaper isn't downloaded. Please download JaKooLit's wallpaper to continue."
@@ -353,7 +353,7 @@ show_menu() {
             
             if [[ "$all_wallpapers"=="( downloaded )" ]]; then
                 run_installer "wmc"
-                #run_installer "wjk" #JaKooLit Wallpapers --- needs to be configured
+                run_installer "wjk"
             else
                 echo "All wallpapers aren't fully downloaded. Please download all wallpapers to continue."
             fi
@@ -369,7 +369,7 @@ show_menu() {
                 run_installer "omp"
 
                 run_installer "wmc"
-                #run_installer "wjk" #JaKooLit Wallpapers --- needs to be configured
+                run_installer "wjk"
             else
                 echo "All assets aren't fully downloaded yet. Please download all dotfiles and wallpapers to continue."
             fi
