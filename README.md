@@ -1,6 +1,6 @@
 # Dotfiles
 
-Welcome to my dotfiles repository! This repo, `Miraj13123/dotfiles`, centralizes my configuration files for tools like Oh-My-Posh, Neovim, Kitty, Tmux, and Bash, making it easy to set up a consistent development environment. The `installer.sh` script automates downloading and installing these dotfiles with a user-friendly menu, perfect for beginners and advanced users alike. Use this repo to adopt my configurations or as a template for your own dotfiles.
+Welcome to my dotfiles repository! This repo, `corechunk/dotfiles`, centralizes my configuration files for tools like Oh-My-Posh, Neovim, Kitty, Tmux, and Bash, making it easy to set up a consistent development environment. The `installer.sh` script automates downloading and installing these dotfiles with a user-friendly menu, perfect for beginners and advanced users alike. Use this repo to adopt my configurations or as a template for your own dotfiles.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Dotfiles-Setup-181717?style=flat-square&logo=github" alt="Dotfiles Setup Badge" width="300"/>
@@ -10,11 +10,11 @@ Welcome to my dotfiles repository! This repo, `Miraj13123/dotfiles`, centralizes
 ## Sub-repositories it includes
 - This Repository
   - `<Sub-Repositories>` : Visit these repositories to know about them properly.
-  - [Oh-My-Posh  -  repository](https://github.com/Miraj13123/Oh-My-Posh)
-  - [Kitty - - - - - --- repository](https://github.com/Miraj13123/Kitty)
-  - [Tmux - - - - - - repository](https://github.com/Miraj13123/Tmux)
-  - [Neovim - - - -  repository](https://github.com/Miraj13123/Neovim)
-  - [Bash - - - - - -- repository](https://github.com/Miraj13123/Bash)
+  - [Oh-My-Posh  -  repository](https://github.com/corechunk/Oh-My-Posh)
+  - [Kitty - - - - - --- repository](https://github.com/corechunk/Kitty)
+  - [Tmux - - - - - - repository](https://github.com/corechunk/Tmux)
+  - [Neovim - - - -  repository](https://github.com/corechunk/Neovim)
+  - [Bash - - - - - -- repository](https://github.com/corechunk/Bash)
   - ###### [ Some are dot files here and others are configurations files ]
 ---
 ## 🗂️ Repository Structure
@@ -75,7 +75,7 @@ The `installer.sh` script is your entry point for managing dotfiles. Follow thes
 
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/Miraj13123/dotfiles.git
+git clone https://github.com/corechunk/dotfiles.git
 cd dotfiles
 ```
 
@@ -126,7 +126,7 @@ sudo pacman -Syu --noconfirm git curl
 ## 🛠️ Installation Details
 
 The `installer.sh` script performs the following:
-- **Download Dotfiles**: Clones configurations from GitHub (e.g., `https://github.com/Miraj13123/Neovim.git` for Neovim) into folders like `nvim`, `kitty`, etc.
+- **Download Dotfiles**: Clones configurations from GitHub (e.g., `https://github.com/corechunk/Neovim.git` for Neovim) into folders like `nvim`, `kitty`, etc.
 - **Check Dependencies**: Verifies `.git` presence in each tool’s folder to enable installation.
 - **Run Installers**: Executes tool-specific installers (e.g., `installer_nvim_dots.sh`):
   - **Oh-My-Posh**: Installs Oh-My-Posh and its configuration.
@@ -143,8 +143,8 @@ Each installer can be run standalone (e.g., `bash nvim/installer_nvim_dots.sh`).
 ## ⌨️ Controls and Keybindings
 
 For detailed keybindings and configurations:
-- **Neovim, Kitty, Tmux, Bash, Oh-My-Posh** : See the [Neovim repository](https://github.com/Miraj13123/Neovim) and the respective repositories for keybindings and navigation tips.
-- **Vim Motions** : [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md).
+- **Neovim, Kitty, Tmux, Bash, Oh-My-Posh** : See the [Neovim repository](https://github.com/corechunk/Neovim) and the respective repositories for keybindings and navigation tips.
+- **Vim Motions** : [Vim Motions and Modes](https://github.com/corechunk/extras/blob/main/files/vim/vim_motions_modes.md).
 
 ---
 
@@ -154,5 +154,5 @@ This repository is licensed under the [Apache 2.0 License](LICENSE).
 
 ---
 
-[![Back to Dotfiles](https://img.shields.io/badge/Back_to_Dotfiles-181717?style=flat-square&logo=github)](https://github.com/Miraj13123/dotfiles)
+[![Back to Dotfiles](https://img.shields.io/badge/Back_to_Dotfiles-181717?style=flat-square&logo=github)](https://github.com/corechunk/dotfiles)
 [![Connect on X](https://img.shields.io/badge/Connect_on_X-1DA1F2?style=flat-square&logo=x)](https://x.com/Mahmudul__Miraj)
