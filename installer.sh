@@ -302,13 +302,13 @@ download_dotfiles() {
 # Function to run installer for a specific tool
 run_installer() {
 	local dir=$1
-	local installer_script="$dir/installer_${dir}_dots.sh"
+	local installer_script="installer_${dir}_dots.sh"
 	
-	if [ -f "$installer_script" ]; then
+	if [ -f "./$dir/$installer_script" ]; then
 		echo "Running installer for $dir..."
 		(
-			cd "$dir"
-			bash "$installer_script" "$mode" || { echo "Error: Installer script $installer_script failed"; return 1; }
+			cd "./$dir"
+			bash "./$installer_script" "$mode" || { echo "Error: Installer script $installer_script failed"; return 1; }
 		)
 		return 0
 	else
