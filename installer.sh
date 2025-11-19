@@ -95,10 +95,11 @@ delete_menu() {
             echo "  -------------------"
             echo "6. Delete JaKooLit wallpapers"
             echo "7. Delete Minecraft Wallpapers"
+            echo "8. Delete os Wallpapers"
             echo "  -------------------"
-            echo "8. Delete all dotfiles only"
-            echo "9. Delete all wallpapers only"
-            echo "10. Delete all dotfiles and all wallpapers"
+            echo "9. Delete all dotfiles only"
+            echo "10. Delete all wallpapers only"
+            echo "11. Delete all dotfiles and all wallpapers"
             echo "  -------------------"
             echo "[x]. Back to main menu : choose 'x' to return"
             echo "----------------------"
@@ -107,7 +108,7 @@ delete_menu() {
             echo ""
         elif [[ "$mode" == "tui" ]];then
             choice=$(dialog --stdout --clear --title "Delete Menu" \
-                --menu "Select an option to delete:" 20 60 12 \
+                --menu "Select an option to delete:" 20 60 13 \
                 1 "Delete oh-my-posh dotfiles" \
                 2 "Delete Kitty dotfiles" \
                 3 "Delete Tmux dotfiles" \
@@ -115,9 +116,10 @@ delete_menu() {
                 5 "Delete Bash dotfiles" \
                 6 "Delete JaKooLit wallpapers" \
                 7 "Delete Minecraft Wallpapers" \
-                8 "Delete all dotfiles only" \
-                9 "Delete all wallpapers only" \
-                10 "Delete all dotfiles and all wallpapers" \
+                8 "Delete os Wallpapers" \
+                9 "Delete all dotfiles only" \
+                10 "Delete all wallpapers only" \
+                11 "Delete all dotfiles and all wallpapers" \
                 x "Back to main menu")
         fi
         
@@ -129,18 +131,20 @@ delete_menu() {
             5) delete_folder "bash";;
             6) delete_folder "wjk";;
             7) delete_folder "wmc";;
-            8)
+            8) delete_folder "wos";;
+            9)
                 delete_folder "nvim"
                 delete_folder "kitty"
                 delete_folder "tmux"
                 delete_folder "bash"
                 delete_folder "omp"
-                ;;
-            9)
-                delete_folder "wmc"
-                delete_folder "wjk"
                 ;;
             10)
+                delete_folder "wmc"
+                delete_folder "wjk"
+                delete_folder "wos"
+                ;;
+            11)
                 delete_folder "nvim"
                 delete_folder "kitty"
                 delete_folder "tmux"
@@ -148,6 +152,7 @@ delete_menu() {
                 delete_folder "omp"
                 delete_folder "wmc"
                 delete_folder "wjk"
+                delete_folder "wos"
                 ;;
             x|X)
                 clear
@@ -180,12 +185,13 @@ download_menu() {
 			echo "  -------------------"
 			echo "6. Download JaKooLit wallpapers"
 			echo "7. Download Minecraft Wallpapers"
+			echo "8. Download os Wallpapers"
 			echo "  -------------------"
-			echo "8. Download all dotfiles only"
-			echo "9. Download all wallpapers only"
-			echo "10. Download all dotfiles and all wallpapers"
+			echo "9. Download all dotfiles only"
+			echo "10. Download all wallpapers only"
+			echo "11. Download all dotfiles and all wallpapers"
 			echo "  -------------------"
-			echo "11. Uninstall Page"
+			echo "12. Uninstall Page"
 			echo "[x]. Back to main menu : choose 'x' to return"
 			echo "----------------------"
 			
@@ -193,7 +199,7 @@ download_menu() {
 			echo ""
 		elif [[ "$mode" == "tui" ]];then
 			choice=$(dialog --stdout --clear --title "Download Dotfiles Menu" \
-				--menu "Select an option:" 20 60 12 \
+				--menu "Select an option:" 20 60 13 \
 				1 "Download oh-my-posh dotfiles" \
 				2 "Download Kitty dotfiles" \
 				3 "Download Tmux dotfiles" \
@@ -201,10 +207,11 @@ download_menu() {
 				5 "Download Bash dotfiles" \
 				6 "Download JaKooLit wallpapers" \
 				7 "Download Minecraft Wallpapers" \
-				8 "Download all dotfiles only" \
-				9 "Download all wallpapers only" \
-				10 "Download all dotfiles and all wallpapers" \
-				11 "Uninstall Page" \
+				8 "Download os Wallpapers" \
+				9 "Download all dotfiles only" \
+				10 "Download all wallpapers only" \
+				11 "Download all dotfiles and all wallpapers" \
+				12 "Uninstall Page" \
 				x "Back to main menu")
 		fi
 		
@@ -233,13 +240,17 @@ download_menu() {
 			6)
 					# Download JaKooLit wallpapers
 				echo "not configured yet"
-				download_dotfile "wjk" https://github.com/Miraj13123/wallpaper_jakoolit.git
+				download_dotfile "wjk" "https://github.com/Miraj13123/wallpaper_jakoolit.git"
 				;;
 			7)
 					# Download Minecraft wallpapers
 				download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
 				;;
 			8)
+					# Download os wallpapers
+				download_dotfile "wos" "https://github.com/corechunk/wallpaper_os.git"
+				;;
+			9)
 					# Download all dotfiles only
 				download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
 				download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
@@ -247,12 +258,13 @@ download_menu() {
 				download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
 				download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
 				;;
-			9)
+			10)
 					# Download all wallpapers only
 				download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
-				download_dotfile "wjk" https://github.com/Miraj13123/wallpaper_jakoolit.git
+				download_dotfile "wjk" "https://github.com/Miraj13123/wallpaper_jakoolit.git"
+				download_dotfile "wos" "https://github.com/corechunk/wallpaper_os.git"
 				;;
-			10)
+			11)
 					# Download all dotfiles and all wallpapers
 				download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
 				download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
@@ -261,9 +273,10 @@ download_menu() {
 				download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
 
 				download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
-				download_dotfile "wjk" https://github.com/Miraj13123/wallpaper_jakoolit.git
+				download_dotfile "wjk" "https://github.com/Miraj13123/wallpaper_jakoolit.git"
+				download_dotfile "wos" "https://github.com/corechunk/wallpaper_os.git"
 				;;
-			11)
+			12)
 				clear
 				delete_menu
 				;;
@@ -350,6 +363,7 @@ show_menu() {
 
 		local wjk_git="(wallpapers aren't downloaded)"
 		local wmc_git="(wallpapers aren't downloaded)"
+		local wos_git="(wallpapers aren't downloaded)"
 
 		local all_dots="( downloaded )"
 		local all_wallpapers="( downloaded )"
@@ -365,6 +379,7 @@ show_menu() {
 
 		check_git "wmc" && wmc_git="( downloaded )"
 		check_git "wjk" && wjk_git="( downloaded )"
+		check_git "wos" && wos_git="( downloaded )"
 		
 		# Check if all dotfiles are downloaded
 		for dir in nvim kitty tmux bash omp; do
@@ -375,7 +390,7 @@ show_menu() {
 		done
 
 		# Check if all wallpapers are downloaded
-		for dir in wjk wmc; do
+		for dir in wjk wmc wos; do
 			if ! check_git "$dir"; then
 				all_wallpapers="(all wallpapers aren't downloaded)"
 				break
@@ -402,10 +417,11 @@ show_menu() {
 			echo "5. Install Bash dots, $bash_git"
 			echo "6. Install JaKooLit wallpapers, $wjk_git"
 			echo "7. Install Minecraft wallpapers, $wmc_git"
-			echo "8. Install all dotfiles only, $all_dots"
-			echo "9. Install all wallpapers only, $all_wallpapers"
-			echo "10. Install all dotfiles and wallpapers, $all_assets"
-			echo "11. Info"
+			echo "8. Install os wallpapers, $wos_git"
+			echo "9. Install all dotfiles only, $all_dots"
+			echo "10. Install all wallpapers only, $all_wallpapers"
+			echo "11. Install all dotfiles and wallpapers, $all_assets"
+			echo "12. Info"
 			echo "[x]. Exit : choose 'x' to exit"
 			echo ""
 			
@@ -415,7 +431,7 @@ show_menu() {
 			echo ""
 		elif [[ "$mode" == tui ]];then
 			choice=$(dialog --stdout --clear --title "Dotfiles Installer Menu" \
-				--menu "Select an option:" 20 70 14 \
+				--menu "Select an option:" 20 70 15 \
 				0 "Download page for downloading any assets, $all_assets" \
 				1 "Install oh-my-posh dots, $omp_git" \
 				2 "Install Kitty dots, $kitty_git" \
@@ -424,10 +440,11 @@ show_menu() {
 				5 "Install Bash dots, $bash_git" \
 				6 "Install JaKooLit wallpapers, $wjk_git" \
 				7 "Install Minecraft wallpapers, $wmc_git" \
-				8 "Install all dotfiles only, $all_dots" \
-				9 "Install all wallpapers only, $all_wallpapers" \
-				10 "Install all dotfiles and wallpapers, $all_assets" \
-				11 "Info" \
+				8 "Install os wallpapers, $wos_git" \
+				9 "Install all dotfiles only, $all_dots" \
+				10 "Install all wallpapers only, $all_wallpapers" \
+				11 "Install all dotfiles and wallpapers, $all_assets" \
+				12 "Info" \
 				x "Exit")
 		fi
 
@@ -496,6 +513,14 @@ show_menu() {
 				;;
 			8)
 				clear
+				if [[ "$wos_git" == "( downloaded )" ]]; then
+					run_installer "wos"
+				else
+					echo "os wallpapers aren't downloaded yet. Please download os Wallpapers to continue."
+				fi
+				;;
+			9)
+				clear
 				if [[ "$all_dots" == "( downloaded )" ]]; then
 					run_installer "nvim"
 					run_installer "kitty"
@@ -506,16 +531,17 @@ show_menu() {
 					echo "Dotfiles aren't fully downloaded. Please download all dotfiles to continue."
 				fi
 				;;
-			9)
+			10)
 				clear
 				if [[ "$all_wallpapers" == "( downloaded )" ]]; then
 					run_installer "wmc"
 					run_installer "wjk"
+					run_installer "wos"
 				else
 					echo "All wallpapers aren't fully downloaded. Please download all wallpapers to continue."
 				fi
 				;;
-			10)
+			11)
 				clear
 				if [[ "$all_assets" == "( downloaded )" ]]; then
 					run_installer "nvim"
@@ -525,11 +551,12 @@ show_menu() {
 					run_installer "omp"
 					run_installer "wmc"
 					run_installer "wjk"
+					run_installer "wos"
 				else
 					echo "All assets aren't fully downloaded yet. Please download all dotfiles and wallpapers to continue."
 				fi
 				;;
-			11)
+			12)
 				clear
 				show_info
 				;;
