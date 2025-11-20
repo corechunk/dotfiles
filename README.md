@@ -9,12 +9,16 @@ Welcome to my dotfiles repository! This repo, `corechunk/dotfiles`, centralizes 
 ---
 ## Sub-repositories it includes
 - This Repository
+  - [Hyprland - repository (incomplete)](https://github.com/corechunk/hyprland)
   - `<Sub-Repositories>` : Visit these repositories to know about them properly.
-  - [Oh-My-Posh  -  repository](https://github.com/corechunk/Oh-My-Posh)
-  - [Kitty - - - - - --- repository](https://github.com/corechunk/Kitty)
-  - [Tmux - - - - - - repository](https://github.com/corechunk/Tmux)
-  - [Neovim - - - -  repository](https://github.com/corechunk/Neovim)
-  - [Bash - - - - - -- repository](https://github.com/corechunk/Bash)
+  - [Oh-My-Posh - repository](https://github.com/Miraj13123/omp)
+  - [Kitty - repository](https://github.com/Miraj13123/Kitty)
+  - [Tmux - repository](https://github.com/Miraj13123/Tmux)
+  - [Neovim - repository](https://github.com/Miraj13123/Neovim)
+  - [Bash - repository](https://github.com/Miraj13123/Bash)
+  - [JaKooLit Wallpapers - repository](https://github.com/Miraj13123/wallpaper_jakoolit)
+  - [Minecraft Wallpapers - repository](https://github.com/Miraj13123/wallpaper_minecraft)
+  - [OS Wallpapers - repository](https://github.com/corechunk/wallpaper_os)
   - ###### [ Some are dot files here and others are configurations files ]
 ---
 ## 🗂️ Repository Structure
@@ -24,6 +28,8 @@ The repository is organized as follows:
 dotfiles/
 ├── .git/
 ├── installer.sh
+│
+├── hyprland/...
 │
 ├── omp/...
 ├── kitty/...
@@ -39,7 +45,7 @@ dotfiles/
 - The root `installer.sh` orchestrates downloading and running these installers.
 ---
 
-## ✨ Table of Contents  -- [[ Not updated ]] --
+## ✨ Table of Contents
 - [Gallery](#gallery)
 - [Usage Guide](#usage-guide)
 - [Prerequisites](#prerequisites)
@@ -52,9 +58,9 @@ dotfiles/
 
 ## 🖼️ Gallery
 ```
-Neovim | Tmux
+Neovim | Kitty
 -------|------
-Kitty  | Bash
+Tmux   | Bash
 ```
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <div style="flex: 1; min-width: 45%; max-width: 45%;">
@@ -87,10 +93,20 @@ chmod +x installer.sh
 
 3. **Navigate the Menu**:
 ``` 
-- `0`: Download dotfiles for Oh-My-Posh, Neovim, Kitty, Tmux, or Bash (individually or all at once via a sub-menu).
-- `1`: Install all dotfiles (requires all dotfiles to be downloaded).
-- `2-6`: Install dotfiles for Oh-My-Posh, Neovim, Kitty, Tmux, or Bash individually.
-- `7`: Display information about some options
+- `0`: Download page for downloading any assets (dotfiles and wallpapers).
+- `1`: Install Hyprland dotfiles (incomplete).
+- `2`: Install oh-my-posh dotfiles.
+- `3`: Install Kitty dotfiles.
+- `4`: Install Tmux dotfiles.
+- `5`: Install Neovim dotfiles.
+- `6`: Install Bash dotfiles.
+- `7`: Install JaKooLit wallpapers.
+- `8`: Install Minecraft wallpapers.
+- `9`: Install OS wallpapers.
+- `10`: Install all dotfiles only.
+- `11`: Install all wallpapers only.
+- `12`: Install all dotfiles and all wallpapers.
+- `13`: Display information about some options.
 - `x`: Exit the script.
 ```
 - The script checks for `.git` in each tool’s folder to enable installation options.
@@ -126,9 +142,11 @@ sudo pacman -Syu --noconfirm git curl
 ## 🛠️ Installation Details
 
 The `installer.sh` script performs the following:
-- **Download Dotfiles**: Clones configurations from GitHub (e.g., `https://github.com/corechunk/Neovim.git` for Neovim) into folders like `nvim`, `kitty`, etc.
+- **Download Dotfiles**: Clones configurations from GitHub into folders (e.g., `hyprland`, `nvim`, `kitty`, `tmux`, `bash`, `omp`). A total of 6 dotfile repositories.
+- **Download Wallpapers**: Clones wallpaper repositories from GitHub into folders (e.g., `wmc`, `wjk`, `wos`). A total of 3 wallpaper repositories.
 - **Check Dependencies**: Verifies `.git` presence in each tool’s folder to enable installation.
 - **Run Installers**: Executes tool-specific installers (e.g., `installer_nvim_dots.sh`):
+  - **Hyprland**: Installs Hyprland and its configuration (incomplete).
   - **Oh-My-Posh**: Installs Oh-My-Posh and its configuration.
   - **Neovim**: Installs Neovim and copies `init.lua` and `init_custom.lua` to `~/.config/nvim`.
   - **Kitty**: Installs Kitty, FantasqueSansM Nerd Font Mono, and copies `kitty_custom.conf`, `kitty-colors.conf`, and themes to `~/.config/kitty`.
@@ -143,6 +161,7 @@ Each installer can be run standalone (e.g., `bash nvim/installer_nvim_dots.sh`).
 ## ⌨️ Controls and Keybindings
 
 For detailed keybindings and configurations:
+- **Hyprland** : See the [Hyprland repository](https://github.com/corechunk/hyprland) for keybindings and navigation tips (incomplete).
 - **Neovim, Kitty, Tmux, Bash, Oh-My-Posh** : See the [Neovim repository](https://github.com/corechunk/Neovim) and the respective repositories for keybindings and navigation tips.
 - **Vim Motions** : [Vim Motions and Modes](https://github.com/corechunk/extras/blob/main/files/vim/vim_motions_modes.md).
 

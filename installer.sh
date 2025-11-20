@@ -87,19 +87,20 @@ delete_menu() {
         if [[ "$mode" == "cli" ]];then
             echo "Delete Menu"
             echo "----------------------"
-            echo "1. Delete oh-my-posh dotfiles"
-            echo "2. Delete Kitty dotfiles"
-            echo "3. Delete Tmux dotfiles"
-            echo "4. Delete Neovim dotfiles"
-            echo "5. Delete Bash dotfiles"
+            echo "1. Delete Hyprland dotfiles"
+            echo "2. Delete oh-my-posh dotfiles"
+            echo "3. Delete Kitty dotfiles"
+            echo "4. Delete Tmux dotfiles"
+            echo "5. Delete Neovim dotfiles"
+            echo "6. Delete Bash dotfiles"
             echo "  -------------------"
-            echo "6. Delete JaKooLit wallpapers"
-            echo "7. Delete Minecraft Wallpapers"
-            echo "8. Delete os Wallpapers"
+            echo "7. Delete JaKooLit wallpapers"
+            echo "8. Delete Minecraft Wallpapers"
+            echo "9. Delete os Wallpapers"
             echo "  -------------------"
-            echo "9. Delete all dotfiles only"
-            echo "10. Delete all wallpapers only"
-            echo "11. Delete all dotfiles and all wallpapers"
+            echo "10. Delete all dotfiles only"
+            echo "11. Delete all wallpapers only"
+            echo "12. Delete all dotfiles and all wallpapers"
             echo "  -------------------"
             echo "[x]. Back to main menu : choose 'x' to return"
             echo "----------------------"
@@ -108,43 +109,47 @@ delete_menu() {
             echo ""
         elif [[ "$mode" == "tui" ]];then
             choice=$(dialog --stdout --clear --title "Delete Menu" \
-                --menu "Select an option to delete:" 20 60 13 \
-                1 "Delete oh-my-posh dotfiles" \
-                2 "Delete Kitty dotfiles" \
-                3 "Delete Tmux dotfiles" \
-                4 "Delete Neovim dotfiles" \
-                5 "Delete Bash dotfiles" \
-                6 "Delete JaKooLit wallpapers" \
-                7 "Delete Minecraft Wallpapers" \
-                8 "Delete os Wallpapers" \
-                9 "Delete all dotfiles only" \
-                10 "Delete all wallpapers only" \
-                11 "Delete all dotfiles and all wallpapers" \
+                --menu "Select an option to delete:" 20 60 15 \
+                1 "Delete Hyprland dotfiles" \
+                2 "Delete oh-my-posh dotfiles" \
+                3 "Delete Kitty dotfiles" \
+                4 "Delete Tmux dotfiles" \
+                5 "Delete Neovim dotfiles" \
+                6 "Delete Bash dotfiles" \
+                7 "Delete JaKooLit wallpapers" \
+                8 "Delete Minecraft Wallpapers" \
+                9 "Delete os Wallpapers" \
+                10 "Delete all dotfiles only" \
+                11 "Delete all wallpapers only" \
+                12 "Delete all dotfiles and all wallpapers" \
                 x "Back to main menu")
         fi
         
         case $choice in
-            1) delete_folder "omp";;
-            2) delete_folder "kitty";;
-            3) delete_folder "tmux";;
-            4) delete_folder "nvim";;
-            5) delete_folder "bash";;
-            6) delete_folder "wjk";;
-            7) delete_folder "wmc";;
-            8) delete_folder "wos";;
-            9)
+            1) delete_folder "hyprland";;
+            2) delete_folder "omp";;
+            3) delete_folder "kitty";;
+            4) delete_folder "tmux";;
+            5) delete_folder "nvim";;
+            6) delete_folder "bash";;
+            7) delete_folder "wjk";;
+            8) delete_folder "wmc";;
+            9) delete_folder "wos";;
+            10)
+                delete_folder "hyprland"
                 delete_folder "nvim"
                 delete_folder "kitty"
                 delete_folder "tmux"
                 delete_folder "bash"
                 delete_folder "omp"
                 ;;
-            10)
+            11)
                 delete_folder "wmc"
                 delete_folder "wjk"
                 delete_folder "wos"
                 ;;
-            11)
+            12)
+                delete_folder "hyprland"
                 delete_folder "nvim"
                 delete_folder "kitty"
                 delete_folder "tmux"
@@ -177,21 +182,22 @@ download_menu() {
 		if [[ "$mode" == "cli" ]];then
 			echo "Download Dotfiles Menu"
 			echo "----------------------"
-			echo "1. Download oh-my-posh dotfiles"
-			echo "2. Download Kitty dotfiles"
-			echo "3. Download Tmux dotfiles"
-			echo "4. Download Neovim dotfiles"
-			echo "5. Download Bash dotfiles"
+			echo "1. Download Hyprland dotfiles"
+			echo "2. Download oh-my-posh dotfiles"
+			echo "3. Download Kitty dotfiles"
+			echo "4. Download Tmux dotfiles"
+			echo "5. Download Neovim dotfiles"
+			echo "6. Download Bash dotfiles"
 			echo "  -------------------"
-			echo "6. Download JaKooLit wallpapers"
-			echo "7. Download Minecraft Wallpapers"
-			echo "8. Download os Wallpapers"
+			echo "7. Download JaKooLit wallpapers"
+			echo "8. Download Minecraft Wallpapers"
+			echo "9. Download os Wallpapers"
 			echo "  -------------------"
-			echo "9. Download all dotfiles only"
-			echo "10. Download all wallpapers only"
-			echo "11. Download all dotfiles and all wallpapers"
+			echo "10. Download all dotfiles only"
+			echo "11. Download all wallpapers only"
+			echo "12. Download all dotfiles and all wallpapers"
 			echo "  -------------------"
-			echo "12. Uninstall Page"
+			echo "13. Uninstall Page"
 			echo "[x]. Back to main menu : choose 'x' to return"
 			echo "----------------------"
 			
@@ -199,73 +205,80 @@ download_menu() {
 			echo ""
 		elif [[ "$mode" == "tui" ]];then
 			choice=$(dialog --stdout --clear --title "Download Dotfiles Menu" \
-				--menu "Select an option:" 20 60 13 \
-				1 "Download oh-my-posh dotfiles" \
-				2 "Download Kitty dotfiles" \
-				3 "Download Tmux dotfiles" \
-				4 "Download Neovim dotfiles" \
-				5 "Download Bash dotfiles" \
-				6 "Download JaKooLit wallpapers" \
-				7 "Download Minecraft Wallpapers" \
-				8 "Download os Wallpapers" \
-				9 "Download all dotfiles only" \
-				10 "Download all wallpapers only" \
-				11 "Download all dotfiles and all wallpapers" \
-				12 "Uninstall Page" \
+				--menu "Select an option:" 20 60 15 \
+				1 "Download Hyprland dotfiles" \
+				2 "Download oh-my-posh dotfiles" \
+				3 "Download Kitty dotfiles" \
+				4 "Download Tmux dotfiles" \
+				5 "Download Neovim dotfiles" \
+				6 "Download Bash dotfiles" \
+				7 "Download JaKooLit wallpapers" \
+				8 "Download Minecraft Wallpapers" \
+				9 "Download os Wallpapers" \
+				10 "Download all dotfiles only" \
+				11 "Download all wallpapers only" \
+				12 "Download all dotfiles and all wallpapers" \
+				13 "Uninstall Page" \
 				x "Back to main menu")
 		fi
 		
 		case $choice in
 			1)
+				# Download Hyprland dotfiles
+				download_dotfile "hyprland" "https://github.com/corechunk/hyprland.git"
+				;;
+			2)
 				# Download oh-my-posh dotfiles
 				download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
 				;;
-			2)
+			3)
 				# Download Kitty dotfiles
 				download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
 				;;
-			3)
+			4)
 				# Download Tmux dotfiles
 				download_dotfile "tmux" "https://github.com/Miraj13123/Tmux.git"
 				;;
-			4)
+			5)
 				# Download Neovim dotfiles
 				# Download Lazyvim branch of Neovim dotfiles
 				download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
 				;;
-			5)
+			6)
 				# Download Bash dotfiles
 				download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
 				;;
-			6)
+			7)
 					# Download JaKooLit wallpapers
 				echo "not configured yet"
 				download_dotfile "wjk" "https://github.com/Miraj13123/wallpaper_jakoolit.git"
 				;;
-			7)
+			8)
 					# Download Minecraft wallpapers
 				download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
 				;;
-			8)
+			9)
 					# Download os wallpapers
 				download_dotfile "wos" "https://github.com/corechunk/wallpaper_os.git"
 				;;
-			9)
+			10)
 					# Download all dotfiles only
+				download_dotfile "hyprland" "https://github.com/corechunk/hyprland.git"
 				download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
 				download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
 				download_dotfile "tmux" "https://github.com/Miraj13123/Tmux.git"
 				download_dotfile "bash" "https://github.com/Miraj13123/Bash.git"
 				download_dotfile "omp" "https://github.com/Miraj13123/omp.git"
 				;;
-			10)
+			11)
 					# Download all wallpapers only
 				download_dotfile "wmc" "https://github.com/Miraj13123/wallpaper_minecraft.git"
 				download_dotfile "wjk" "https://github.com/Miraj13123/wallpaper_jakoolit.git"
 				download_dotfile "wos" "https://github.com/corechunk/wallpaper_os.git"
 				;;
-			11)
+			12)
 					# Download all dotfiles and all wallpapers
+				download_dotfile "hyprland" "https://github.com/corechunk/hyprland.git"
 				download_dotfile "nvim" "https://github.com/Miraj13123/Neovim.git" "Lazyvim"  # lazyvim branch  \/\/\/\/\/\/\/\/\//\/\/
 				download_dotfile "kitty" "https://github.com/Miraj13123/Kitty.git"
 				download_dotfile "tmux" "https://github.com/Miraj13123/Tmux.git"
@@ -276,7 +289,7 @@ download_menu() {
 				download_dotfile "wjk" "https://github.com/Miraj13123/wallpaper_jakoolit.git"
 				download_dotfile "wos" "https://github.com/corechunk/wallpaper_os.git"
 				;;
-			12)
+			13)
 				clear
 				delete_menu
 				;;
@@ -325,6 +338,7 @@ show_info() {
 	echo ""
 	echo "This script helps you:"
 	echo "  • Download configuration files (dotfiles) for:"
+	echo "    - Hyprland"
 	echo "    - Neovim (LazyVim setup)"
 	echo "    - Kitty terminal"
 	echo "    - Tmux"
@@ -355,6 +369,7 @@ show_info() {
 show_menu() {
 	while true;do
 		# Check .git presence for each directory
+		local hyprland_git="(dotfiles aren't downloaded)"
 		local neovim_git="(dotfiles aren't downloaded)"
 		local kitty_git="(dotfiles aren't downloaded)"
 		local tmux_git="(dotfiles aren't downloaded)"
@@ -371,6 +386,7 @@ show_menu() {
 		local all_assets="( downloaded )"
 		
 		# calling function to check .git file
+		check_git "hyprland" && hyprland_git="( downloaded )"
 		check_git "nvim" && neovim_git="( downloaded )"
 		check_git "kitty" && kitty_git="( downloaded )"
 		check_git "tmux" && tmux_git="( downloaded )"
@@ -382,7 +398,7 @@ show_menu() {
 		check_git "wos" && wos_git="( downloaded )"
 		
 		# Check if all dotfiles are downloaded
-		for dir in nvim kitty tmux bash omp; do
+		for dir in hyprland nvim kitty tmux bash omp; do
 			if ! check_git "$dir"; then
 				all_dots="(all dotfiles aren't downloaded)"
 				break
@@ -410,18 +426,19 @@ show_menu() {
 			echo "Dotfiles Installer Menu"
 			echo "----------------------"
 			echo "0. Download page for downloading any assets, $all_assets"
-			echo "1. Install oh-my-posh dots, $omp_git"
-			echo "2. Install Kitty dots, $kitty_git"
-			echo "3. Install Tmux dots, $tmux_git"
-			echo "4. Install Neovim dots, $neovim_git"
-			echo "5. Install Bash dots, $bash_git"
-			echo "6. Install JaKooLit wallpapers, $wjk_git"
-			echo "7. Install Minecraft wallpapers, $wmc_git"
-			echo "8. Install os wallpapers, $wos_git"
-			echo "9. Install all dotfiles only, $all_dots"
-			echo "10. Install all wallpapers only, $all_wallpapers"
-			echo "11. Install all dotfiles and wallpapers, $all_assets"
-			echo "12. Info"
+			echo "1. Install Hyprland dots, $hyprland_git"
+			echo "2. Install oh-my-posh dots, $omp_git"
+			echo "3. Install Kitty dots, $kitty_git"
+			echo "4. Install Tmux dots, $tmux_git"
+			echo "5. Install Neovim dots, $neovim_git"
+			echo "6. Install Bash dots, $bash_git"
+			echo "7. Install JaKooLit wallpapers, $wjk_git"
+			echo "8. Install Minecraft wallpapers, $wmc_git"
+			echo "9. Install os wallpapers, $wos_git"
+			echo "10. Install all dotfiles only, $all_dots"
+			echo "11. Install all wallpapers only, $all_wallpapers"
+			echo "12. Install all dotfiles and wallpapers, $all_assets"
+			echo "13. Info"
 			echo "[x]. Exit : choose 'x' to exit"
 			echo ""
 			
@@ -431,20 +448,21 @@ show_menu() {
 			echo ""
 		elif [[ "$mode" == tui ]];then
 			choice=$(dialog --stdout --clear --title "Dotfiles Installer Menu" \
-				--menu "Select an option:" 20 70 15 \
+				--menu "Select an option:" 20 70 16 \
 				0 "Download page for downloading any assets, $all_assets" \
-				1 "Install oh-my-posh dots, $omp_git" \
-				2 "Install Kitty dots, $kitty_git" \
-				3 "Install Tmux dots, $tmux_git" \
-				4 "Install Neovim dots, $neovim_git" \
-				5 "Install Bash dots, $bash_git" \
-				6 "Install JaKooLit wallpapers, $wjk_git" \
-				7 "Install Minecraft wallpapers, $wmc_git" \
-				8 "Install os wallpapers, $wos_git" \
-				9 "Install all dotfiles only, $all_dots" \
-				10 "Install all wallpapers only, $all_wallpapers" \
-				11 "Install all dotfiles and wallpapers, $all_assets" \
-				12 "Info" \
+				1 "Install Hyprland dots, $hyprland_git" \
+				2 "Install oh-my-posh dots, $omp_git" \
+				3 "Install Kitty dots, $kitty_git" \
+				4 "Install Tmux dots, $tmux_git" \
+				5 "Install Neovim dots, $neovim_git" \
+				6 "Install Bash dots, $bash_git" \
+				7 "Install JaKooLit wallpapers, $wjk_git" \
+				8 "Install Minecraft wallpapers, $wmc_git" \
+				9 "Install os wallpapers, $wos_git" \
+				10 "Install all dotfiles only, $all_dots" \
+				11 "Install all wallpapers only, $all_wallpapers" \
+				12 "Install all dotfiles and wallpapers, $all_assets" \
+				13 "Info" \
 				x "Exit")
 		fi
 
@@ -456,13 +474,21 @@ show_menu() {
 				;;
 			1)
 				clear
+				if [[ "$hyprland_git" == "( downloaded )" ]]; then
+					run_installer "hyprland"
+				else
+					echo "Hyprland dotfiles aren't available. Please download dotfiles to continue."
+				fi
+				;;
+			2)
+				clear
 				if [[ "$omp_git" == "( downloaded )" ]]; then
 					run_installer "omp"
 				else
 					echo "oh-my-posh dotfiles aren't available. Please download dotfiles to continue."
 				fi
 				;;
-			2)
+			3)
 				clear
 				if [[ "$kitty_git" == "( downloaded )" ]]; then
 					run_installer "kitty"
@@ -470,7 +496,7 @@ show_menu() {
 					echo "Kitty dotfiles aren't available. Please download dotfiles to continue."
 				fi
 				;;
-			3)
+			4)
 				clear
 				if [[ "$tmux_git" == "( downloaded )" ]]; then
 					run_installer "tmux"
@@ -478,7 +504,7 @@ show_menu() {
 					echo "Tmux dotfiles aren't available. Please download dotfiles to continue."
 				fi
 				;;
-			4)
+			5)
 				clear
 				if [[ "$neovim_git" == "( downloaded )" ]]; then
 					run_installer "nvim"
@@ -486,7 +512,7 @@ show_menu() {
 					echo "Neovim dotfiles aren't available. Please download dotfiles to continue."
 				fi
 				;;
-			5)
+			6)
 				clear
 				if [[ "$bash_git" == "( downloaded )" ]]; then
 					run_installer "bash"
@@ -494,7 +520,7 @@ show_menu() {
 					echo "Bash dotfiles aren't available. Please download dotfiles to continue."
 				fi
 				;;
-			6)
+			7)
 				clear
 				if [[ "$wjk_git" == "( downloaded )" ]]; then
 					run_installer "wjk"
@@ -503,7 +529,7 @@ show_menu() {
 					echo "JaKooLit Wallpaper isn't downloaded. Please download JaKooLit's wallpaper to continue."
 				fi
 				;;
-			7)
+			8)
 				clear
 				if [[ "$wmc_git" == "( downloaded )" ]]; then
 					run_installer "wmc"
@@ -511,7 +537,7 @@ show_menu() {
 					echo "Minecraft wallpapers aren't downloaded yet. Please download Minecraft Wallpapers to continue."
 				fi
 				;;
-			8)
+			9)
 				clear
 				if [[ "$wos_git" == "( downloaded )" ]]; then
 					run_installer "wos"
@@ -519,9 +545,10 @@ show_menu() {
 					echo "os wallpapers aren't downloaded yet. Please download os Wallpapers to continue."
 				fi
 				;;
-			9)
+			10)
 				clear
 				if [[ "$all_dots" == "( downloaded )" ]]; then
+					run_installer "hyprland"
 					run_installer "nvim"
 					run_installer "kitty"
 					run_installer "tmux"
@@ -531,7 +558,7 @@ show_menu() {
 					echo "Dotfiles aren't fully downloaded. Please download all dotfiles to continue."
 				fi
 				;;
-			10)
+			11)
 				clear
 				if [[ "$all_wallpapers" == "( downloaded )" ]]; then
 					run_installer "wmc"
@@ -541,9 +568,10 @@ show_menu() {
 					echo "All wallpapers aren't fully downloaded. Please download all wallpapers to continue."
 				fi
 				;;
-			11)
+			12)
 				clear
 				if [[ "$all_assets" == "( downloaded )" ]]; then
+					run_installer "hyprland"
 					run_installer "nvim"
 					run_installer "kitty"
 					run_installer "tmux"
@@ -556,7 +584,7 @@ show_menu() {
 					echo "All assets aren't fully downloaded yet. Please download all dotfiles and wallpapers to continue."
 				fi
 				;;
-			12)
+			13)
 				clear
 				show_info
 				;;
