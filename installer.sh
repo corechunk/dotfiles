@@ -108,7 +108,7 @@ delete_menu() {
             read -p "Enter your choice: " choice
             echo ""
         elif [[ "$mode" == "tui" ]];then
-            choice=$(dialog --stdout --clear --title "Delete Menu" \
+            choice=$(dialog --title "Delete Menu" \
                 --menu "Select an option to delete:" 20 60 15 \
                 1 "Delete Hyprland dotfiles" \
                 2 "Delete oh-my-posh dotfiles" \
@@ -122,7 +122,7 @@ delete_menu() {
                 10 "Delete all dotfiles only" \
                 11 "Delete all wallpapers only" \
                 12 "Delete all dotfiles and all wallpapers" \
-                x "Back to main menu")
+                x "Back to main menu" 2>&1 >/dev/tty)
         fi
         
         case $choice in
@@ -204,7 +204,7 @@ download_menu() {
 			read -p "Enter your choice: " choice
 			echo ""
 		elif [[ "$mode" == "tui" ]];then
-			choice=$(dialog --stdout --clear --title "Download Dotfiles Menu" \
+			choice=$(dialog --title "Download Dotfiles Menu" \
 				--menu "Select an option:" 20 60 15 \
 				1 "Download Hyprland dotfiles" \
 				2 "Download oh-my-posh dotfiles" \
@@ -219,7 +219,7 @@ download_menu() {
 				11 "Download all wallpapers only" \
 				12 "Download all dotfiles and all wallpapers" \
 				13 "Uninstall Page" \
-				x "Back to main menu")
+				x "Back to main menu" 2>&1 >/dev/tty)
 		fi
 		
 		case $choice in
@@ -447,7 +447,7 @@ show_menu() {
 			read -p "Enter your choice: " choice
 			echo ""
 		elif [[ "$mode" == tui ]];then
-			choice=$(dialog --stdout --clear --title "Dotfiles Installer Menu" \
+			choice=$(dialog --title "Dotfiles Installer Menu" \
 				--menu "Select an option:" 20 70 16 \
 				0 "Download page for downloading any assets, $all_assets" \
 				1 "Install Hyprland dots, $hyprland_git" \
@@ -463,7 +463,7 @@ show_menu() {
 				11 "Install all wallpapers only, $all_wallpapers" \
 				12 "Install all dotfiles and wallpapers, $all_assets" \
 				13 "Info" \
-				x "Exit")
+				x "Exit" 2>&1 >/dev/tty)
 		fi
 
 		# Process user choice
