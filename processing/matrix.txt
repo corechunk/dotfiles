@@ -1,0 +1,3 @@
+COMPONENTS:hyprland:waybar:quickshell:wallust:fastfetch:neovim:kitty:bash:tmux:oh-my-posh:sddm:cava
+[0.0.0]|1.0.0|1.0.0|0.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0
+[1.0.0]|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0

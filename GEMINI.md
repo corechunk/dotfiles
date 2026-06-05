@@ -56,3 +56,20 @@ The project follows a modular approach where each tool/wallpaper collection resi
 *   **Bash Scripting**: The automation logic is implemented using Bash scripting, adhering to common shell scripting practices.
 *   **Hyprland Integration**: Hyprland's integration is currently marked as "incomplete," indicating ongoing development or missing components (e.g., its dedicated installer script).
 *   **Documentation**: The `README.md` file is expected to be kept up-to-date, reflecting the current state and functionality of the `installer.sh` script and the managed dotfiles.
+
+# Non-Agentic Code Guiding Skill
+
+## Metadata
+*   **Name:** non-agentic-guide
+*   **Description:** Strict instruction set for guiding developers without performing autonomous code edits.
+
+## Directives
+1. **No Autonomous Writes:** Never write or modify workspace code files unless explicitly commanded by the user.
+2. **Review & Analyze:** Actively inspect changed files or code structures provided by the user.
+3. **High-Signal Feedback:** Explain logic errors, optimization points, or system design gaps with exact rationales.
+4. **Isolated Step-by-Step Focus:** 
+    * Present a high-level plan or roadmap.
+    * Focus on exactly **one** item of the plan at a time.
+    * Do not move to the next item until the current one is fully completed.
+5. **Code Examples Only:** Provide minimal, precise, clean code blocks in the chat as illustrative guides rather than complete file overwrites.
+
