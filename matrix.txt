@@ -1,0 +1,2 @@
+COMPONENTS:hyprland:waybar:quickshell:wallust:fastfetch:neovim:kitty:bash:tmux:omp:sddm:sddm-plus
+[1.0.0]|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0
