@@ -1,177 +1,145 @@
 # Dotfiles
 
-Welcome to my dotfiles repository! This repo, `corechunk/dotfiles`, centralizes my configuration files for tools like Oh-My-Posh, Neovim, Kitty, Tmux, and Bash, making it easy to set up a consistent development environment. The `installer.sh` script automates downloading and installing these dotfiles with a user-friendly menu, perfect for beginners and advanced users alike. Use this repo to adopt my configurations or as a template for your own dotfiles.
+Welcome to my dotfiles repository! This repo, `corechunk/dotfiles`, has evolved from a modular installer into a sophisticated, matrix-driven orchestrator (Hub V2) for managing high-performance development environments. It centralizes configurations for Hyprland, Waybar, Neovim, Kitty, Tmux, and more, offering a two-phase deployment system (Vault Sync -> System Deploy) to ensure consistency and reproducibility across machines.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Dotfiles-Setup-181717?style=flat-square&logo=github" alt="Dotfiles Setup Badge" width="300"/>
 </p>
 
 ---
-## Sub-repositories it includes
-- This Repository
-  - [Hyprland - repository (incomplete)](https://github.com/corechunk/hyprland)
-  - `<Sub-Repositories>` : Visit these repositories to know about them properly.
-  - [Oh-My-Posh - repository](https://github.com/Miraj13123/omp)
-  - [Kitty - repository](https://github.com/Miraj13123/Kitty)
-  - [Tmux - repository](https://github.com/Miraj13123/Tmux)
-  - [Neovim - repository](https://github.com/Miraj13123/Neovim)
-  - [Bash - repository](https://github.com/Miraj13123/Bash)
-  - [JaKooLit Wallpapers - repository](https://github.com/Miraj13123/wallpaper_jakoolit)
-  - [Minecraft Wallpapers - repository](https://github.com/Miraj13123/wallpaper_minecraft)
-  - [OS Wallpapers - repository](https://github.com/corechunk/wallpaper_os)
-  - ###### [ Some are dot files here and others are configurations files ]
+
+## 🚀 Sub-repositories Included
+
+*   [**Hyprland**](https://github.com/corechunk/hyprland) : Dynamic Tiling Window Manager.
+*   [**Waybar**](https://github.com/corechunk/waybar) : Customizable status bar.
+*   [**Quickshell**](https://github.com/corechunk/quickshell) : Flexible shell UI.
+*   [**Wallust**](https://github.com/corechunk/wallust) : Dynamic colors.
+*   [**Fastfetch**](https://github.com/corechunk/fastfetch) : System info.
+*   [**Neovim**](https://github.com/corechunk/Neovim) : Extensible text editor (LazyVim based).
+*   [**Kitty**](https://github.com/corechunk/Kitty) : GPU terminal.
+*   [**Bash**](https://github.com/corechunk/Bash) : Shell config.
+*   [**Tmux**](https://github.com/corechunk/Tmux) : Multiplexer.
+*   [**Oh-My-Posh**](https://github.com/corechunk/omp) : Prompt engine.
+*   [**Wallpapers**](https://github.com/corechunk/wallpaper_minecraft) : Minecraft, OS, and JaKooLit collections.
+
 ---
+
 ## 🗂️ Repository Structure
 
-The repository is organized as follows: 
-``` 
+The Hub V2 uses a "Vault" system to manage versioned bundles.
+
+```text
 dotfiles/
-├── .git/
-├── installer.sh
+├── main.sh             # V2 Core Orchestrator (Entry Point)
+├── matrix.txt          # Version Source of Truth
+├── installer.sh        # Legacy V1 Menu
 │
-├── hyprland/...
+├── processing/
+│   ├── bundles/        # The Vault (Versioned clones)
+│   └── cache/          # Metadata storage
 │
-├── omp/...
-├── kitty/...
-├── tmux/...
-├── nvim/...
-├── bash/...
-│
-├── README.md
-└── LICENSE
+├── assets/             # Persistent Wallpapers/Themes
+└── src/                # Modular V1 Source Scripts
 ```
-- [ the structure show the state after you download all the sub repos through the installer ]
-- Each tool’s folder contains its installer script and configuration files.
-- The root `installer.sh` orchestrates downloading and running these installers.
+
 ---
 
 ## ✨ Table of Contents
 - [Gallery](#gallery)
 - [Usage Guide](#usage-guide)
-- [Prerequisites](#prerequisites)
-- [Repository Structure](#repository-structure)
-- [Installation Details](#installation-details)
-- [Controls and Keybindings](#controls-and-keybindings)
+- [Developer Documentation](#-developer-documentation)
+- [Terminal Interface](#-terminal-interface)
 - [License](#license)
 
 ---
 
 ## 🖼️ Gallery
-```
-Neovim | Kitty
--------|------
-Tmux   | Bash
-```
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <div style="flex: 1; min-width: 45%; max-width: 45%;">
-    <img src="assets/image1.png" alt="Neovim Config" style="width: 400px; height: auto;">
-    <img src="assets/image2.png" alt="Tmux Config" style="width: 400px; height: auto;">
-  </div>
-  <div style="flex: 1; min-width: 45%; max-width: 45%;">
-    <img src="assets/image3.png" alt="Kitty Config" style="width: 400px; height: auto;">
-    <img src="assets/image4.png" alt="Bash Config" style="width: 400px; height: auto;">
-  </div>
-</div>
+
+<table align="center">
+  <tr>
+    <td align="center"><b>Neovim</b></td>
+    <td align="center"><b>Kitty</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/image1.png" width="400"></td>
+    <td><img src="assets/image3.png" width="400"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Tmux</b></td>
+    <td align="center"><b>Bash</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/image2.png" width="400"></td>
+    <td><img src="assets/image4.png" width="400"></td>
+  </tr>
+</table>
 
 ---
 
 ## 📚 Usage Guide
 
-The `installer.sh` script is your entry point for managing dotfiles. Follow these steps to get started:
-
-1. **Clone the Repository**:
+### **1. Interactive Hub**
+Launch the visual orchestrator to manage bundles and assets.
 ```bash
-git clone https://github.com/corechunk/dotfiles.git
-cd dotfiles
+./main.sh
 ```
 
-2. **Run the Installer**:
+### **2. Non-Positional Flags (CLI Mode)**
+Automate your setup with specialized flags:
+*   `--mode [rookie|force|interactive]` : Set deployment strategy.
+*   `--bundle [version]` : Target a specific version from `matrix.txt`.
+*   `--type [dotfile|wallpaper]` : Filter components for CLI listing.
+
+**Example Command:**
 ```bash
-chmod +x installer.sh
-./installer.sh
+# Force install bundle 1.0.0 silently
+./main.sh --bundle 1.0.0 --mode force install
 ```
 
-3. **Navigate the Menu**:
-``` 
-- `0`: Download page for downloading any assets (dotfiles and wallpapers).
-- `1`: Install Hyprland dotfiles (incomplete).
-- `2`: Install oh-my-posh dotfiles.
-- `3`: Install Kitty dotfiles.
-- `4`: Install Tmux dotfiles.
-- `5`: Install Neovim dotfiles.
-- `6`: Install Bash dotfiles.
-- `7`: Install JaKooLit wallpapers.
-- `8`: Install Minecraft wallpapers.
-- `9`: Install OS wallpapers.
-- `10`: Install all dotfiles only.
-- `11`: Install all wallpapers only.
-- `12`: Install all dotfiles and all wallpapers.
-- `13`: Display information about some options.
-- `x`: Exit the script.
-```
-- The script checks for `.git` in each tool’s folder to enable installation options.
-- A sub-menu for option `0` lets you choose which dotfiles to download.
+---
 
-4. **Follow Prompts**:
-``` 
-- The script prompts for confirmation before major actions (e.g., downloading, installing).
-- For example, the Neovim installer checks for Neovim and configuration files, asking for y/n input.
-```
+## 🛠️ Developer Documentation
+For deep dives into the Hub V2 architecture and internal logic:
+*   [**Architecture Map**](map.md) : Visual execution trees and argument flow.
+*   [**Function Logic**](func.md) : Detailed breakdown of parsers and shadowing.
 
 ---
 
 ## 📋 Prerequisites
-
-Before running `installer.sh`, ensure the following are installed:
-- **Git**: To clone repositories and check `.git` folders.
-- **Curl**: For downloading dotfiles.
-
-Install these on a Debian-based system:
-```bash
-sudo apt update
-sudo apt install -y git curl
-```
-
-On an Arch-based system:
-```bash
-sudo pacman -Syu --noconfirm git curl
-```
+- **Git**: For vault synchronization.
+- **Tput / Lsb_release**: For UI colors and distro detection.
+- **Grep / Sed**: For matrix parsing.
 
 ---
 
-## 🛠️ Installation Details
+## ⌨️ Terminal Interface
 
-The `installer.sh` script performs the following:
-- **Download Dotfiles**: Clones configurations from GitHub into folders (e.g., `hyprland`, `nvim`, `kitty`, `tmux`, `bash`, `omp`). A total of 6 dotfile repositories.
-- **Download Wallpapers**: Clones wallpaper repositories from GitHub into folders (e.g., `wmc`, `wjk`, `wos`). A total of 3 wallpaper repositories.
-- **Check Dependencies**: Verifies `.git` presence in each tool’s folder to enable installation.
-- **Run Installers**: Executes tool-specific installers (e.g., `installer_nvim_dots.sh`):
-  - **Hyprland**: Installs Hyprland and its configuration (incomplete).
-  - **Oh-My-Posh**: Installs Oh-My-Posh and its configuration.
-  - **Neovim**: Installs Neovim and copies `init.lua` and `init_custom.lua` to `~/.config/nvim`.
-  - **Kitty**: Installs Kitty, FantasqueSansM Nerd Font Mono, and copies `kitty_custom.conf`, `kitty-colors.conf`, and themes to `~/.config/kitty`.
-  - **Tmux**: Installs Tmux and its configuration.
-  - **Bash**: Installs Bash configuration files.
-- **User Interaction**: Prompts for y/n confirmation before actions, ensuring control.
-
-Each installer can be run standalone (e.g., `bash nvim/installer_nvim_dots.sh`).
+| Action | Logic |
+| :--- | :--- |
+| `bundles` | Lists all available versions in the Matrix. |
+| `components` | Lists all registered keys (supports `--type`). |
+| `count` | Returns total number of registered components. |
+| `check-update` | Compares local vault against latest remote tags. |
 
 ---
 
-## ⌨️ Controls and Keybindings
-
-For detailed keybindings and configurations:
-- **Hyprland** : See the [Hyprland repository](https://github.com/corechunk/hyprland) for keybindings and navigation tips (incomplete).
-- **Neovim, Kitty, Tmux, Bash, Oh-My-Posh** : See the [Neovim repository](https://github.com/corechunk/Neovim) and the respective repositories for keybindings and navigation tips.
-- **Vim Motions** : [Vim Motions and Modes](https://github.com/corechunk/extras/blob/main/files/vim/vim_motions_modes.md).
+## 🖱️ Redirections & References
+- **Neovim Config** : See the [Neovim repository](https://github.com/corechunk/Neovim) for detailed keybindings.
+- **Vim Motions** : [Learn Vim Motions and Modes](https://github.com/corechunk/extras/blob/main/files/vim/vim_motions_modes.md).
 
 ---
 
 ## 📜 License
-
-This repository is licensed under the [Apache 2.0 License](LICENSE).
+This repository is licensed under the [MIT License](LICENSE).
 
 ---
 
-[![Back to Dotfiles](https://img.shields.io/badge/Back_to_Dotfiles-181717?style=flat-square&logo=github)](https://github.com/corechunk/dotfiles)
-[![Connect on X](https://img.shields.io/badge/Connect_on_X-1DA1F2?style=flat-square&logo=x)](https://x.com/Mahmudul__Miraj)
+<p align="center">
+  <b>STAY CHILLY - Built by netchunk</b><br/>
+  <a href="https://github.com/corechunk/dotfiles">
+    <img src="https://img.shields.io/badge/Back_to_Dotfiles-181717?style=flat-square&logo=github" alt="Back to Repo"/>
+  </a>
+  <a href="https://x.com/Mahmudul__Miraj">
+    <img src="https://img.shields.io/badge/Connect_on_X-1DA1F2?style=flat-square&logo=x" alt="Connect on X"/>
+  </a>
+</p>
