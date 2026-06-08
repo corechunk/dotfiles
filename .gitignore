@@ -4,7 +4,5 @@ nvim/
 omp/
 tmux/
 GEMINI.md/
-processing/assets
-processing/bundles
-processing/cache
-processing/nohup*
+processing/*
+!processing/matrix.txt
